@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Fecades\Hash;
 
-
 class UserController extends Controller
 {
     public function register(Request $request){
@@ -18,14 +17,13 @@ class UserController extends Controller
             'password' => 'required|string|confirmed'
         ]);
 
-        $user = User::create([
+        $token = User::create([
             'name' => $fields['name'],
             'email' => $fields['email'],
             'password' => bcrypt($fields['password']),
         ]);
 
-        $user = User::where('email', $request->email)->first();
-        $token = $user->createToken('apptoken')->plainTextToken;
+        $token = $user->createToken('user_token')->plainTextToken();
 
         $reponse = [
             'user' => $user,

@@ -24,8 +24,7 @@ class UserController extends Controller
             'password' => bcrypt($fields['password']),
         ]);
 
-        $user = User::where('email', $request->email)->first();
-        $token = $user->createToken('apptoken')->plainTextToken;
+        $token = $user->createToken('apptoken')->plainTextToken();
 
         $reponse = [
             'user' => $user,

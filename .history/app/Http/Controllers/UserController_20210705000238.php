@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Fecades\Hash;
-
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,8 +27,7 @@ class UserController extends Controller
             'password' => bcrypt($fields['password']),
         ]);
 
-        $user = User::where('email', $request->email)->first();
-        $token = $user->createToken('apptoken')->plainTextToken;
+        $token = $user->createToken('apptoken')->plainTextToken();
 
         $reponse = [
             'user' => $user,
