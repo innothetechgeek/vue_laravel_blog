@@ -19,7 +19,7 @@ use App\Http\Controllers\PostController;
 
 // Route::post('post/add', [PostController::class, 'store']);
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class, 'store');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -15,11 +15,11 @@ use App\Http\Controllers\PostController;
 |
 */
 
-// Route::get('/posts', [PostController::class,'index']);
+Route::get('/posts', [PostController::class,'index']);
 
-// Route::post('post/add', [PostController::class, 'store']);
+Route::post('posts/add', [PostController::class, 'store']);
 
-Route::resource('posts', PostController::class);
+Route::resource('post')
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

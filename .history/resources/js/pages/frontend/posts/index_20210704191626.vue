@@ -60,7 +60,7 @@
             </div>
 
             <!-- instagram -->
-            <InstagramFeed/>
+            <InstagranFeed/>
 
             <!-- footer -->
             <PageFooter/>
@@ -88,7 +88,7 @@
             PopularPosts,
             About,
             Categories,
-            InstagramFeed,
+            InstagranFeed,
             PageFooter,
             LatestPosts,
         }

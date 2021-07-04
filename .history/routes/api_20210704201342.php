@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Models;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +15,9 @@ use App\Http\Controllers\PostController;
 |
 */
 
-// Route::get('/posts', [PostController::class,'index']);
-
-// Route::post('post/add', [PostController::class, 'store']);
-
-Route::resource('posts', PostController::class);
+Route::get('/posts', function(){
+    return 'posts';
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

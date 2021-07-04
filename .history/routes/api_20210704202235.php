@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +15,20 @@ use App\Http\Controllers\PostController;
 |
 */
 
-// Route::get('/posts', [PostController::class,'index']);
+Route::get('/posts', function(){
 
-// Route::post('post/add', [PostController::class, 'store']);
+    return Post::all();
 
-Route::resource('posts', PostController::class);
+});
+
+Route::post('/add', function(){
+    return Post::create([
+        'title' => '8 ways to have fun',
+        'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+         'user_id' =>1,
+    ]);
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

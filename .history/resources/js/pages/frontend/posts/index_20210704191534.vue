@@ -60,7 +60,7 @@
             </div>
 
             <!-- instagram -->
-            <InstagramFeed/>
+            <InstagranFeed/>
 
             <!-- footer -->
             <PageFooter/>
@@ -73,12 +73,12 @@
     import FeaturedPost from '../../../components/frontend/posts/FeaturedPost.vue'
     import Header from '../../../components/frontend/PageHeader.vue'
     import PostsTab from '../../../frontend/components/posts/PostsTab.vue'
-    import LatestPosts from '../../../frontend/components/posts/LatestPosts.vue'
-    import PopularPosts from '../../../frontend/components/posts/sidebar/PopularPosts.vue'
-    import About from '../../../frontend/components/posts/sidebar/About.vue'
-    import Categories from '../../../frontend/components/posts/sidebar/Categories.vue'
-    import InstagramFeed from '../../../frontend/components/posts/InstagramFeed.vue';   
-    import PageFooter from '../../../frontend/components/PageFooter.vue';    
+    import LatestPosts from '../../../components/posts/LatestPosts.vue'
+    import PopularPosts from '../../../components/posts/sidebar/PopularPosts.vue'
+    import About from '../../../components/posts/sidebar/About.vue'
+    import Categories from '../../../components/posts/sidebar/Categories.vue'
+    import InstagranFeed from '../../../components/posts/InstagramFeed.vue';   
+    import PageFooter from '../../../components/PageFooter.vue';    
 
      export default {
         components: {
@@ -88,7 +88,7 @@
             PopularPosts,
             About,
             Categories,
-            InstagramFeed,
+            InstagranFeed,
             PageFooter,
             LatestPosts,
         }

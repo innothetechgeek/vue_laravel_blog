@@ -60,7 +60,7 @@
             </div>
 
             <!-- instagram -->
-            <InstagramFeed/>
+            <InstagranFeed/>
 
             <!-- footer -->
             <PageFooter/>

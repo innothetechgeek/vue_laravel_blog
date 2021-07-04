@@ -24,8 +24,8 @@
     </div>
 </template>
 <script>
-import PageNav from '../../../components/dashboard/posts/PageNav.vue'
-import PageSidebar from '../../../components/dashboard/posts/PageSidebar.vue'
+import PageNav from '../../../components/backend/dashboard/posts/PageNav.vue'
+import PageSidebar from '../../../components/backend/dashboard/posts/PageSidebar.vue'
 import DashboardStats from '../../../components/dashboard/posts/DashboardStats.vue'
 import AddForm from '../../../components/dashboard/posts/AddForm'
 
