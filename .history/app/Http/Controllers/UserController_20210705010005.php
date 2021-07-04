@@ -36,25 +36,22 @@ class UserController extends Controller
 
     }
 
-    public function login(Request $request){
+    public function logi(Request $request){
 
         $fields = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string'
+            'name' => 'required|string',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|string|confirmed'
         ]);
 
-        //check email
-        $user = User::where('email', $request->email)->first();
+        $user = User::create([
+            'name' => $fields['name'],
+            'email' => $fields['email'],
+            'password' => bcrypt($fields['password']),
+        ]);
 
-        //check password
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            
-            return response([
-                'message' => 'bad credits',
-            ], 401);
-        }
-    
-        return $user->createToken($request->device_name)->plainTextToken;
+        $user = User::where('email', $request->email)->first();
+        $token = $user->createToken('apptoken')->plainTextToken;
 
         $reponse = [
             'user' => $user,

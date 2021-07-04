@@ -39,8 +39,8 @@ class UserController extends Controller
     public function login(Request $request){
 
         $fields = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string'
+            'email' => 'required|unique:users,email',
+            'password' => 'required|string|confirmed'
         ]);
 
         //check email
@@ -50,8 +50,8 @@ class UserController extends Controller
         if (! $user || ! Hash::check($request->password, $user->password)) {
             
             return response([
-                'message' => 'bad credits',
-            ], 401);
+                'mesage'
+            ]);
         }
     
         return $user->createToken($request->device_name)->plainTextToken;

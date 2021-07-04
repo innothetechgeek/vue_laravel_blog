@@ -23,13 +23,13 @@ use App\Http\Controllers\UserController;
 Route::resource('posts', PostController::class);
 
 Route::post('register',[UserController::class,'register']);
-Route::post('login',[UserController::class,'login']);
+
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
      
     Route::post('posts',[PostController::class,'store']);
     Route::put('posts/{id}',[PostController::class,'update']);
     Route::delete('posts/{id}',[PostController::class,'destroy']);
-    Route::post('/logout', [UserController::class,'logout']);
+    Route::log('/logout', [PostController::class,'logout'])
 
 });

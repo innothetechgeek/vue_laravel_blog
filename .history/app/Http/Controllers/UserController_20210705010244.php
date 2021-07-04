@@ -39,22 +39,15 @@ class UserController extends Controller
     public function login(Request $request){
 
         $fields = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string'
+            'email' => 'required|unique:users,email',
+            'password' => 'required|string|confirmed'
         ]);
 
         //check email
         $user = User::where('email', $request->email)->first();
 
-        //check password
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            
-            return response([
-                'message' => 'bad credits',
-            ], 401);
-        }
-    
-        return $user->createToken($request->device_name)->plainTextToken;
+        //check
+        $token = $user->createToken('apptoken')->plainTextToken;
 
         $reponse = [
             'user' => $user,
