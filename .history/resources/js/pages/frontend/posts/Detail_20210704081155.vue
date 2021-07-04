@@ -77,7 +77,7 @@
     import InstagranFeed from '../../../components/posts/InstagramFeed.vue'
     import PageFooter from '../../../components/PageFooter.vue'
     import PostHeader from '../../../components/posts/PostHeader.vue' 
-    import PostContent from '../../../components/posts/PostContent.vue' 
+    import PostHeader from '../../../components/posts/PostContent.vue' 
 
      export default {
         components: {

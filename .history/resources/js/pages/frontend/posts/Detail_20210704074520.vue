@@ -6,16 +6,10 @@
     <section id="hero">
         <div class="container-xl">
             <div class="row gy-4">
-
                 <div class="col-lg-8">
-                    <div class="post post-single">
-                        <!-- post title -->
-                        <PostHeader/>
-                        <div class="featured-image">
-                                <img src="/images/posts/featured-lg.jpg" alt="post-title">
-                        </div>
-                        <PostContent/>
-                   </div>                    
+                    <!-- featured post -->
+                    <PostTitle/>
+                    
                 </div>
 
                 <div class="col-lg-4">
@@ -76,8 +70,7 @@
     import Categories from '../../../components/posts/sidebar/Categories.vue'
     import InstagranFeed from '../../../components/posts/InstagramFeed.vue'
     import PageFooter from '../../../components/PageFooter.vue'
-    import PostHeader from '../../../components/posts/PostHeader.vue' 
-    import PostContent from '../../../components/posts/PostContent.vue' 
+    import PostTitle from '../../../components/posts/PostHeader.vue' 
 
      export default {
         components: {
@@ -90,8 +83,7 @@
             InstagranFeed,
             PageFooter,
             LatestPosts,
-            PostHeader,
-            PostContent,
+            PostTitle,
         },
         methods: { 
            scrollToTop() {

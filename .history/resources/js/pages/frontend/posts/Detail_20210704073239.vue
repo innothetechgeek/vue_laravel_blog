@@ -8,14 +8,8 @@
             <div class="row gy-4">
 
                 <div class="col-lg-8">
-                    <div class="post post-single">
-                        <!-- post title -->
-                        <PostHeader/>
-                        <div class="featured-image">
-                                <img src="/images/posts/featured-lg.jpg" alt="post-title">
-                        </div>
-                        <PostContent/>
-                   </div>                    
+                    <!-- featured post -->
+                    
                 </div>
 
                 <div class="col-lg-4">
@@ -74,10 +68,8 @@
     import PopularPosts from '../../../components/posts/sidebar/PopularPosts.vue'
     import About from '../../../components/posts/sidebar/About.vue'
     import Categories from '../../../components/posts/sidebar/Categories.vue'
-    import InstagranFeed from '../../../components/posts/InstagramFeed.vue'
-    import PageFooter from '../../../components/PageFooter.vue'
-    import PostHeader from '../../../components/posts/PostHeader.vue' 
-    import PostContent from '../../../components/posts/PostContent.vue' 
+    import InstagranFeed from '../../../components/posts/InstagramFeed.vue';   
+    import PageFooter from '../../../components/PageFooter.vue';    
 
      export default {
         components: {
@@ -90,16 +82,11 @@
             InstagranFeed,
             PageFooter,
             LatestPosts,
-            PostHeader,
-            PostContent,
-        },
-        methods: { 
+        }
+    }
+     methods: { 
            scrollToTop() {
                 window.scrollTo(0,0);
            }
-        },
-        created(){
-            this.scrollToTop();
         }
-    }
 </script>

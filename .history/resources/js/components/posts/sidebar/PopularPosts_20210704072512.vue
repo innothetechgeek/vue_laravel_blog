@@ -12,7 +12,7 @@
 										<span class="number">1</span>
 										<a href="blog-single.html">
 											<div class="inner">
-												<img src="/images/posts/tabs-1.jpg" alt="post-title" />
+												<img src="images/posts/tabs-1.jpg" alt="post-title" />
 											</div>
 										</a>
 									</div>
@@ -29,7 +29,7 @@
 										<span class="number">2</span>
 										<a href="blog-single.html">
 											<div class="inner">
-												<img src="/images/posts/tabs-2.jpg" alt="post-title" />
+												<img src="images/posts/tabs-2.jpg" alt="post-title" />
 											</div>
 										</a>
 									</div>

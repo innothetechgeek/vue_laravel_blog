@@ -116,7 +116,7 @@
                     <div class="thumb circle">
                         <a href="blog-single.html">
                             <div class="inner">
-                                <img src="/images/posts/tabs-4.jpg" alt="post-title" />
+                                <img src="images/posts/tabs-4.jpg" alt="post-title" />
                             </div>
                         </a>
                     </div>
@@ -132,7 +132,7 @@
                     <div class="thumb circle">
                         <a href="blog-single.html">
                             <div class="inner">
-                                <img src="/images/posts/tabs-3.jpg" alt="post-title" />
+                                <img src="images/posts/tabs-3.jpg" alt="post-title" />
                             </div>
                         </a>
                     </div>
