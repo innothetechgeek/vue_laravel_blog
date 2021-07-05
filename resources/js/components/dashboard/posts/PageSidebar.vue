@@ -16,9 +16,11 @@
             </li>
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <router-link  class="nav-link"  to="/dashboard" >
                 <i class="menu-icon typcn typcn-document-text"></i>
-                <span class="menu-title">Dashboard</span>
+                 
+                    <span class="menu-title">Dashboard</span>
+                  </router-link>
               </a>
             </li>
           </ul>

@@ -15,13 +15,17 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>53275535</td>
-                          <td>53275535</td>
-                          <td>20 May 2017</td>
+                        <tr  v-for="post in posts"
+                                :key="post.id">
+                          <td>{{post.id}}</td>
+                          <td>{{post.title}}</td>
+                          <td>{{post.content}}</td>
+                          <td>{{post.created_at}}</td>
                           <td>
-                             <router-link  to="post/add" >
+                             <router-link :to="{
+                                            name: 'EditPost',
+                                            params: { id: post.id }
+                                }" >
                                 <label class="badge badge-success">edit</label>
                              </router-link>
                             <label class="badge badge-danger">delete</label>
@@ -35,3 +39,29 @@
             </div>
           </div>
 </template>
+
+<script>
+   var user_token = localStorage.getItem("user_token");
+   const headers = {
+        headers: { Authorization: 'Bearer '+user_token }
+    };
+    export default {        
+        data(){
+            return{
+               posts: [],
+            }
+        },
+        methods:{
+            getPosts(){
+                axios.get('/api/posts', this.form,headers).then((response)=> {
+                   this.posts = response.data;                                 
+                }).catch((error) =>{
+                    this.errors = error.response.data.errors;
+                })
+            }            
+        },
+        created(){
+            this.getPosts();
+        }
+    }
+</script>

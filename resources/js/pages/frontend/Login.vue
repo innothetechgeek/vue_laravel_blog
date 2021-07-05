@@ -70,8 +70,9 @@
         },
         methods:{
             login(){
-                axios.post('/api/login', this.form).then(() =>{
-                    window.location.href = '/admin'; 
+                axios.post('/api/login', this.form).then((response) =>{
+                    localStorage.setItem("user_token", response.data.token);
+                     window.location.href = '/admin'; 
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;
                     })

@@ -6,8 +6,7 @@ import Login from "./pages/frontend/Login";
 
 import UserDashboard from "./pages/backend/posts/Dashboard";
 import AddPost from "./pages/backend/posts/Add";
-
-
+import EditPost from "./pages/backend/posts/Edit";
 
 export const routes = [
     {
@@ -29,7 +28,7 @@ export const routes = [
         component: PostDetail
     },   
     {
-        path: "/admin",
+        path: "/dashboard",
         name: "UserDashboard",
         component: UserDashboard
     },
@@ -37,6 +36,11 @@ export const routes = [
         path: "/post/add",
         name: "AddPost",
         component: AddPost
+    },
+    {
+        path: "/post/edit",
+        name: "EditPost",
+        component: EditPost
     },
     {
         path: "/register",

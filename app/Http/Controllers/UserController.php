@@ -57,14 +57,14 @@ class UserController extends Controller
             ], 401);
         }
     
-        return $user->createToken($this->token_name)->plainTextToken;
+        $token = $user->createToken($this->token_name)->plainTextToken;
 
-        $reponse = [
+        $response = [
             'user' => $user,
             'token'=> $token
         ];
 
-        return response($reponse, 201);
+        return response($response, 201);
 
     }
 

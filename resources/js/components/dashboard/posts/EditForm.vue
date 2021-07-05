@@ -3,7 +3,7 @@
      <div class="row">
          <div class="col-8">
             <div class="alert alert-primary" role="alert"  v-if="message">
-                New Post Added successfully
+                New Post Updated successfully
             </div>
          </div>       
     </div> 
@@ -12,7 +12,7 @@
              
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Add New Post</h4>
+                <h4 class="card-title">Edit Post</h4>
                 <form id ="PostForm">
                     <div class="form-group">
                          <label for="title">Title</label>
@@ -45,7 +45,7 @@
                             <span class="w-full text-red-500 error" v-if="errors.content">{{errors.content[0]}}</span><br>
                         </div>
                     </div>
-                    <button  @click.prevent="addPost" type="submit" class="btn btn-success mr-2">Submit</button>
+                    <button  @click.prevent="EditPost" type="submit" class="btn btn-success mr-2">Update</button>
                     <button class="btn btn-light">Cancel</button>
                 </form>
                 </div>
@@ -58,8 +58,7 @@
 
     var user_token = localStorage.getItem("user_token");
     const headers = {
-        
-                headers: { Authorization: 'Bearer '+user_token }
+            headers: { Authorization: 'Bearer '+user_token }
     };
      export default {
         
@@ -74,6 +73,9 @@
                 message:'',
             }
         },
+        created(){
+           this.getPost();
+        },
         methods:{
             clearFields(){
                  window.scrollTo(0,0);
@@ -84,10 +86,18 @@
                 } 
                     this.message = 'success';
             },
-            addPost(){
-                axios.post('/api/posts', this.form,headers).then((response)=> {
-                     this.clearFields();
-                                 
+            getPost(){
+                  axios.get('/api/posts/'+this.$route.params.id, this.form,headers).then((response)=> {
+                      console.log(response.data);
+                   this.form = response.data;                                 
+                }).catch((error) =>{
+                    this.errors = error.response.data.errors;
+                })
+            }
+            ,
+            EditPost(){
+                axios.put('/api/posts/'+this.$route.params.id, this.form,headers).then((response)=> {
+                     this.clearFields();                                 
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;
                 })

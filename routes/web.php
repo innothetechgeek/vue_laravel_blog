@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('admin', function () {
-    return view('backend/index');
-});
-
-Route::get('add', function () {
-    return view('backend/add');
+Route::get('dashboard', function () {
+    return view('dashboard/index');
 });
