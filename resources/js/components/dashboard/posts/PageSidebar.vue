@@ -9,7 +9,7 @@
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
+                  <p class="profile-name">{{active_username}}</p>
                   <p class="designation">Premium user</p>
                 </div>
               </a>
@@ -25,3 +25,16 @@
           </ul>
         </nav>
 </template>
+<script>
+export default{
+    data(){
+            return{
+               active_username: '',
+            }
+        },
+    
+        created(){
+           this.active_username = this.$store.state.active_username;
+        }
+}
+</script>

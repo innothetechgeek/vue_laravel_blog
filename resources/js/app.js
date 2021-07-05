@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,6 +22,7 @@ window.Vue = require('vue').default;
 
 import VueRouter from "vue-router";
 import { routes } from "./routes";
+import Vuex from 'vuex'
 
 Vue.use(VueRouter);
 
@@ -32,7 +34,7 @@ Vue.component('posts-index', require('./pages/frontend/posts/Index.vue').default
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- const router = new VueRouter({
+const router = new VueRouter({
     mode: "history",
     routes: routes
 });

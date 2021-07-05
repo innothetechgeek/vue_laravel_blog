@@ -71,9 +71,16 @@
         methods:{
             login(){
                 axios.post('/api/login', this.form).then((response) =>{
+
+                    var active_user  = response.data.user;   
+                  
+                    localStorage.setItem("active_username",active_user.name);
+
                     localStorage.setItem("user_token", response.data.token);
-                     window.location.href = '/dashboard'; 
+                     window.location.href = '/dashboard';
+                     
                 }).catch((error) =>{
+                    console.log(error);
                     this.errors = error.response.data.errors;
                     })
             }

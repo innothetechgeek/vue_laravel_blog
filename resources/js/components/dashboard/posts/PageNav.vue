@@ -135,14 +135,13 @@
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
                   <img class="img-md rounded-circle" src="/backend/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+                  <p class="mb-1 mt-3 font-weight-semibold">{{ active_username }}</p>
                 </div>
                 <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
                 <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
                 <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                 <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-                <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                <a @click="logout" class="sign-out dropdown-item" style="cursor:pointer;">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
               </div>
             </li>
           </ul>
@@ -152,3 +151,36 @@
         </div>
       </nav>
  </template>
+<script>
+  var user_token = localStorage.getItem("user_token");
+   const headers = {
+            headers: { Authorization: 'Bearer '+user_token }
+    };
+export default{
+    data(){
+            return{
+               active_username: '',
+            }
+        },
+    
+        created(){
+           this.active_username = this.$store.state.active_username;
+        },
+        methods:{
+           logout(){
+            
+            axios.post('/api/logout/','',headers).then((response)=> { 
+               
+                  this.$store.commit('setActiveUserName','');
+                  localStorage.removeItem("active_username");   
+                  window.location.href = "/";
+
+              }).catch((error) =>{
+                  this.errors = error.response.data.errors;
+              })
+          }
+
+        }
+       
+}
+</script>

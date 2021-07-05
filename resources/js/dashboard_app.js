@@ -21,8 +21,23 @@ window.Vue = require('vue').default;
 
 import VueRouter from "vue-router";
 import { routes } from "./routes";
+import Vuex from 'vuex'
 
 Vue.use(VueRouter);
+
+//vuex for state management, I'll use vuex to store active username and id
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+    state: {
+      active_username: ''
+    },
+    mutations: {
+      setActiveUserName (state,username) {
+        state.active_username = username;
+      }
+    }
+  })
 
 Vue.component('dashbooard-index', require('./pages/backend/posts/Dashboard.vue').default);
 
@@ -39,5 +54,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router: router
+    router: router,
+    store: store,
 });

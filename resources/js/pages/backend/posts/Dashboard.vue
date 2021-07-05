@@ -45,24 +45,23 @@ export default{
    },
     data(){
             return{
-                form:{
-                    name: '',
-                    email: '',
-                    password:'',
-                    password_confirmation:''
-                },
                 errors:[],
                 token:'',
             }
         },
         methods:{
-            register(){
-                axios.post('/api/register', this.form).then((response) =>{
-                    this.token = response.data.token;
-                }).catch((error) =>{
-                    this.errors = error.response.data.errors;
-                })
+            getActiveUser(){
+                var active_username = localStorage.getItem("active_username");
+                this.$store.commit('setActiveUserName',active_username);
+            },
+            
+            getActiveUserName(){
+              this.$store.state.active_username;
             }
+        },
+        created(){
+            this.getActiveUser();
+            this.getActiveUserName();
         }
 }
 </script>
