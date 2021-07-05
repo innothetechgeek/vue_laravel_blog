@@ -12,138 +12,57 @@
             <div class="lds-dual-ring"></div>
             <!-- popular posts -->
             <div aria-labelledby="popular-tab" class="tab-pane fade show active" id="popular" role="tabpanel">
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-1.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-2.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For All</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-3.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling Furniture</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-4.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve Greater Walker</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
+                <div  v-for="recent_post in recent_posts"
+                                :key="recent_post.post_id">
+                    <!-- post -->
+                    <div class="post post-list-sm circle">
+                        <div class="thumb circle">
+                           <router-link  :to="{
+                                            name: 'PostDetail',
+                                            params: { id: recent_post.post_id}
+                                }" >
+                                <div class="inner">
+                                    <img src="/images/posts/tabs-2.jpg" alt="post-title" />
+                                </div>
+                            </router-link>
+                        </div>
+                        <div class="details clearfix">
+                            <h6 class="post-title my-0"><router-link :to="{
+                                            name: 'PostDetail',
+                                            params: { id: recent_post.post_id }
+                                }" >{{recent_post.title}}</router-link></h6>
+                            <ul class="meta list-inline mt-1 mb-0">
+                                <li class="list-inline-item">{{recent_post.created_at_formatted}}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- recent posts -->
             <div aria-labelledby="recent-tab" class="tab-pane fade" id="recent" role="tabpanel">
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-2.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For All</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-1.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-4.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve Greater Walker</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- post -->
-                <div class="post post-list-sm circle">
-                    <div class="thumb circle">
-                        <a href="blog-single.html">
-                            <div class="inner">
-                                <img src="/images/posts/tabs-3.jpg" alt="post-title" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="details clearfix">
-                        <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling Furniture</a></h6>
-                        <ul class="meta list-inline mt-1 mb-0">
-                            <li class="list-inline-item">29 March 2021</li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
 </template>
+<script>
+    export default {        
+        data(){
+            return{
+               recent_posts: [],
+            }
+        },
+        methods:{
+            getRecentPosts(){
+                axios.get('/api/recent-posts').then((response)=> {
+                   this.recent_posts = response.data;                                 
+                }).catch((error) =>{
+                    this.errors = error.response.data.errors;
+                })
+            },          
+        },
+        created(){
+            this.getRecentPosts();
+        }
+    }
+</script>

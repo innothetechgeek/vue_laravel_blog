@@ -16,15 +16,17 @@
                       </thead>
                       <tbody>
                         <tr  v-for="post in posts"
-                                :key="post.id">
-                          <td>{{post.id}}</td>
+                                :key="post.post_id">
+                          <td>{{post.post_id}}</td>
                           <td>{{post.title}}</td>
-                          <td>{{post.content}}</td>
-                          <td>{{post.created_at}}</td>
+                          <td style="max-width:200px;  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;" >{{post.content}}</td>
+                          <td>{{post.created_at_formatted}}</td>
                           <td>
                              <router-link :to="{
                                             name: 'EditPost',
-                                            params: { id: post.id }
+                                            params: { id: post.post_id }
                                 }" >
                                 <label class="badge badge-success">edit</label>
                              </router-link>
@@ -41,10 +43,6 @@
 </template>
 
 <script>
-   var user_token = localStorage.getItem("user_token");
-   const headers = {
-        headers: { Authorization: 'Bearer '+user_token }
-    };
     export default {        
         data(){
             return{
@@ -53,7 +51,7 @@
         },
         methods:{
             getPosts(){
-                axios.get('/api/posts', this.form,headers).then((response)=> {
+                axios.get('/api/posts',).then((response)=> {
                    this.posts = response.data;                                 
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;

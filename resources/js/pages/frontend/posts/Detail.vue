@@ -20,7 +20,18 @@
 
                 <div class="col-lg-4">
                     <!-- recent / popular tabs  -->
-                    <PostsTab/>                       
+                    <PostsTab/>          
+
+                    <!-- sidebar -->
+                    <div class="sidebar" style="margin-top:15px">
+                        <!-- popular posts -->
+                        <PopularPosts/>                           
+
+                        <!-- widget categories -->
+                        <Categories/>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -39,18 +50,7 @@
                 </div>
                 <div class="col-lg-4">
 
-                    <!-- sidebar -->
-                    <div class="sidebar">
-                        <!-- widget about -->
-                        <About/>
-
-                        <!-- popular posts -->
-                        <PopularPosts/>                           
-
-                        <!-- widget categories -->
-                        <Categories/>
-
-                    </div>
+                    
 
                 </div>
 

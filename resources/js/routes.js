@@ -33,12 +33,12 @@ export const routes = [
         component: UserDashboard
     },
     {
-        path: "/post/add",
+        path: "/dashboard/post/add",
         name: "AddPost",
         component: AddPost
     },
     {
-        path: "/post/edit",
+        path: "dashboard/post/edit",
         name: "EditPost",
         component: EditPost
     },

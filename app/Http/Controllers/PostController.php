@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Auth;
 
 class PostController extends Controller
 {
@@ -14,7 +15,50 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::all();
+        $posts = Post::select('posts.id as post_id', '*')
+                    ->join('users', 'posts.user_id', '=', 'users.id')->get();
+
+        $posts = $posts->map(function($posts) {
+
+            $posts->created_at_formatted = $posts->created_at->diffForHumans();        
+
+            return $posts;
+
+        });
+        return $posts;
+    }
+
+    public function recentPosts(){
+        
+        $posts = Post::select('posts.id as post_id', '*')
+                    ->join('users', 'posts.user_id', '=', 'users.id')->take(5)->get();
+
+        $posts = $posts->map(function($posts) {
+
+            $posts->created_at_formatted = $posts->created_at->diffForHumans();        
+
+            return $posts;
+
+        });
+
+        return $posts;
+
+    }
+
+    public function featuredPost(){
+
+        $posts = Post::select('*')
+        ->join('users', 'posts.user_id', '=', 'users.id')->take(1)->get();
+
+            $posts = $posts->map(function($posts) {
+
+            $posts->created_at_formatted = $posts->created_at->diffForHumans();        
+
+            return $posts;
+
+        });
+
+        return $posts;
     }
 
     /**
@@ -30,7 +74,7 @@ class PostController extends Controller
             'content' => 'required',
         ]);
 
-        $post_data = array_merge($request->all(),['user_id' =>1]);
+        $post_data = array_merge($request->all(),['user_id'=>Auth::user()->id]);
         return Post::create($post_data);
     }
 
@@ -54,12 +98,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-       $post =  Post::where('id', $id)
-                    ->where('user_id',1)
-                    ->update(
-                        $request->all()
-                    );
+
+            $post =  Post::where('id', $id)
+                        ->update(
+                            $request->all()
+                        );
             
 
     }
@@ -72,8 +115,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post =  Post::where('id', $id)
-                    ->where('user_id',1)
+            $post =  Post::where('id', $id)
                     ->delete();
     }
 }

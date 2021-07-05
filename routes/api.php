@@ -21,6 +21,8 @@ use App\Http\Controllers\UserController;
 // Route::post('post/add', [PostController::class, 'store']);
 
 Route::resource('posts', PostController::class);
+Route::get('recent-posts', [PostController::class,'recentPosts']);
+Route::get('featured-post', [PostController::class,'featuredPost']);
 
 Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
@@ -28,6 +30,7 @@ Route::post('login',[UserController::class,'login']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
      
     Route::post('posts',[PostController::class,'store']);
+    Route::get('user-posts',[PostController::class,'getUserPosts']);
     Route::put('posts/{id}',[PostController::class,'update']);
     Route::delete('posts/{id}',[PostController::class,'destroy']);
     Route::post('/logout', [UserController::class,'logout']);

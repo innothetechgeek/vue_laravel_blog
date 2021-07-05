@@ -20,8 +20,7 @@
                 <i class="menu-icon typcn typcn-document-text"></i>
                  
                     <span class="menu-title">Dashboard</span>
-                  </router-link>
-              </a>
+                </router-link>
             </li>
           </ul>
         </nav>

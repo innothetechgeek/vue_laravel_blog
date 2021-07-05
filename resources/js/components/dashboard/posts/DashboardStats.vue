@@ -44,7 +44,7 @@
                         <div class="d-flex">
                           <div class="wrapper">
                             <h3 class="mb-0 font-weight-semibold">1,553</h3>
-                            <h5 class="mb-0 font-weight-medium text-primary">Downloads</h5>
+                            <h5 class="mb-0 font-weight-medium text-primary">Comments</h5>
                             <p class="mb-0 text-muted">+138.97(+0.54%)</p>
                           </div>
                           <div class="wrapper my-auto ml-auto ml-lg-4">

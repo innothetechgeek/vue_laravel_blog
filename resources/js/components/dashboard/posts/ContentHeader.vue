@@ -37,18 +37,13 @@
             <a href="#" class="advanced-link toolbar-item">Advanced Options</a>
             </div>
             <div class="sort-wrapper">
-                 <router-link  to="post/add" class="btn btn-primary toolbar-item" style="padding:.60rem .60rem;">
+                 <router-link  to="dashboard/post/add" class="btn btn-primary toolbar-item" style="padding:.60rem .60rem;">
                     
                         Add New Post
                     
                  </router-link>           
             <div class="dropdown ml-lg-auto ml-3 toolbar-item">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownexport" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownexport">
-                <a class="dropdown-item" href="#">Export as PDF</a>
-                <a class="dropdown-item" href="#">Export as DOCX</a>
-                <a class="dropdown-item" href="#">Export as CDR</a>
-                </div>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownexport" aria-expanded="false">Export</button>
             </div>
             </div>
         </div>

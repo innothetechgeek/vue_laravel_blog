@@ -72,7 +72,7 @@
             login(){
                 axios.post('/api/login', this.form).then((response) =>{
                     localStorage.setItem("user_token", response.data.token);
-                     window.location.href = '/admin'; 
+                     window.location.href = '/dashboard'; 
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;
                     })
