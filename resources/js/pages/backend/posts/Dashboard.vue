@@ -27,10 +27,10 @@
     </div>
 </template>
 <script>
-import PageNav from '../../../components/backend/dashboard/posts/PageNav.vue'
-import PageSidebar from '../../../components/backend/dashboard/posts/PageSidebar.vue'
-import DashboardStats from '../../../components/backend/dashboard/posts/DashboardStats.vue'
-import PostsTable from '../../../components/backend/dashboard/posts/PostsTable.vue'
+import PageNav from '../../../components/dashboard/posts/PageNav.vue'
+import PageSidebar from '../../../components/dashboard/posts/PageSidebar.vue'
+import DashboardStats from '../../../components/dashboard/posts/DashboardStats.vue'
+import PostsTable from '../../../components/dashboard/posts/PostsTable.vue'
 
 export default{
    components:{

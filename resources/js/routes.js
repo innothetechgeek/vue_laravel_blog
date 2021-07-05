@@ -1,7 +1,11 @@
 import PostsIndex from "./pages/frontend/posts/Index";
 import PostDetail from "./pages/frontend/posts/Detail";
+import Register from "./pages/frontend/Register";
+
+
 import UserDashboard from "./pages/backend/posts/Dashboard";
 import AddPost from "./pages/backend/posts/Add";
+
 
 
 export const routes = [
@@ -33,4 +37,9 @@ export const routes = [
         name: "AddPost",
         component: AddPost
     },
+    {
+        path: "/register",
+        name:"register",
+        component : Register
+    }
 ];

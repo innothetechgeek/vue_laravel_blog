@@ -23,17 +23,10 @@
 							<a class="nav-link" href="category.html">Lifestyle</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="category.html">Inspiration</a>
+							<a class="nav-link" href="category.html">Login</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#">Pages</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="category.html">Category</a></li>
-								<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-								<li><a class="dropdown-item" href="blog-single-alt.html">Blog Single Alt</a></li>
-								<li><a class="dropdown-item" href="about.html">About</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact</a></li>
-							</ul>
+							<router-link  to="/register" >Register</router-link>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="contact.html">Contact</a>

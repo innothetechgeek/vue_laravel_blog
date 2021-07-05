@@ -67,17 +67,17 @@
 </div><!-- end site wrapper -->
 </template>
 <script>
-    import FeaturedPost from '../../../components/posts/FeaturedPost.vue'
-    import Header from '../../../components/PageHeader.vue'
-    import PostsTab from '../../../components/posts/PostsTab.vue'
-    import LatestPosts from '../../../components/posts/LatestPosts.vue'
-    import PopularPosts from '../../../components/posts/sidebar/PopularPosts.vue'
-    import About from '../../../components/posts/sidebar/About.vue'
-    import Categories from '../../../components/posts/sidebar/Categories.vue'
-    import InstagranFeed from '../../../components/posts/InstagramFeed.vue'
-    import PageFooter from '../../../components/PageFooter.vue'
-    import PostHeader from '../../../components/posts/PostHeader.vue' 
-    import PostContent from '../../../components/posts/PostContent.vue' 
+    import FeaturedPost from '../../../components/frontend/posts/FeaturedPost.vue'
+    import PostHeader from '../../../components/frontend/posts/PostHeader.vue'
+    import Header from '../../../components/frontend/PageHeader.vue'
+    import PostsTab from '../../../components/frontend/posts/PostsTab.vue'
+    import LatestPosts from '../../../components/frontend//posts/LatestPosts.vue'
+    import PopularPosts from '../../../components/frontend/posts/sidebar/PopularPosts.vue'
+    import About from '../../../components/frontend//posts/sidebar/About.vue'
+    import Categories from '../../../components/frontend/posts/sidebar/Categories.vue'
+    import PageFooter from '../../../components/frontend/PageFooter.vue'  
+    import InstagramFeed from '../../../components/frontend/posts/InstagramFeed.vue' 
+    import PostContent from '../../../components/frontend/posts/PostContent.vue' 
 
      export default {
         components: {
@@ -87,7 +87,7 @@
             PopularPosts,
             About,
             Categories,
-            InstagranFeed,
+            InstagramFeed,
             PageFooter,
             LatestPosts,
             PostHeader,
