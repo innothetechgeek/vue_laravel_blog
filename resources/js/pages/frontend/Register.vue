@@ -7,7 +7,10 @@
         <div class="container-xl">
             <div class="row gy-4 d-flex justify-content-center">
                 <div class="col-lg-6">
-                        <form>
+                    <form>
+                        <div class="alert alert-primary" role="alert" v-if="token">
+                                Registration successful! Please click <router-link to="/login"><strong>here</strong></router-link> to login
+                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
@@ -71,13 +74,14 @@
                     password:'',
                     password_confirmation:''
                 },
-                errors:[]
+                errors:[],
+                token:'',
             }
         },
         methods:{
             saveForm(){
-                axios.post('/api/register', this.form).then(() =>{
-                    console.log('saved');
+                axios.post('/api/register', this.form).then((response) =>{
+                    this.token = response.data.token;
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;
                 })

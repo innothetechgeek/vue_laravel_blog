@@ -33,7 +33,7 @@
                         </div>                      
                         <div class="form-group row">
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <button @click.prevent="saveForm"  type="submit" class="btn" style="background: linear-gradient(to right, #FE4F70 0%, #FFA387 100%);adding-right: 1.3rem;
+                                <button @click.prevent="login"  type="submit" class="btn" style="background: linear-gradient(to right, #FE4F70 0%, #FFA387 100%);adding-right: 1.3rem;
     padding-left: 1.3rem;padding: 1rem 4rem;">Login</button>
                             </div>
                         </div>
@@ -69,12 +69,12 @@
             }
         },
         methods:{
-            saveForm(){
+            login(){
                 axios.post('/api/login', this.form).then(() =>{
-                    console.log('saved');
+                    window.location.href = '/admin'; 
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;
-                })
+                    })
             }
         }
     }

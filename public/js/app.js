@@ -2114,11 +2114,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    saveForm: function saveForm() {
+    login: function login() {
       var _this = this;
 
       axios.post('/api/login', this.form).then(function () {
-        console.log('saved');
+        window.location.href = '/admin';
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
@@ -2195,6 +2195,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2210,15 +2213,16 @@ __webpack_require__.r(__webpack_exports__);
         password: '',
         password_confirmation: ''
       },
-      errors: []
+      errors: [],
+      token: ''
     };
   },
   methods: {
     saveForm: function saveForm() {
       var _this = this;
 
-      axios.post('/api/register', this.form).then(function () {
-        console.log('saved');
+      axios.post('/api/register', this.form).then(function (response) {
+        _this.token = response.data.token;
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
@@ -42454,7 +42458,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  return _vm.saveForm.apply(null, arguments)
+                                  return _vm.login.apply(null, arguments)
                                 }
                               }
                             },
@@ -42517,6 +42521,26 @@ var render = function() {
               [
                 _c("div", { staticClass: "col-lg-6" }, [
                   _c("form", [
+                    _vm.token
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "alert alert-primary",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Registration successful! Please click "
+                            ),
+                            _c("router-link", { attrs: { to: "/login" } }, [
+                              _c("strong", [_vm._v("here")])
+                            ]),
+                            _vm._v(" to login\n                        ")
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c("div", { staticClass: "form-group row" }, [
                       _c(
                         "label",
