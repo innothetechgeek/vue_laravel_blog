@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\Response;
-use Illuminate\Support\Fecades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
 {
+    
+    public $token_name = 'apptoken';
+
     public function register(Request $request){
 
         $fields = $request->validate([
@@ -25,7 +28,7 @@ class UserController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-        $token = $user->createToken('apptoken')->plainTextToken;
+        $token = $user->createToken($this->token_name)->plainTextToken;
 
         $reponse = [
             'user' => $user,
@@ -54,7 +57,7 @@ class UserController extends Controller
             ], 401);
         }
     
-        return $user->createToken($request->device_name)->plainTextToken;
+        return $user->createToken($this->token_name)->plainTextToken;
 
         $reponse = [
             'user' => $user,
