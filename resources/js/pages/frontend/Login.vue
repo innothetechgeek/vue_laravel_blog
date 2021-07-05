@@ -8,16 +8,27 @@
             <div class="row gy-4 d-flex justify-content-center">
                 <div class="col-lg-6">
                         <form>
+                        <!-- <span class="w-full text-red-500" v-if="errors.name">{{errors.name[0]}}</span> -->
+                        <div class="col-12 d-flex justify-content-end">
+                            <span class="w-full text-red-500 error" v-if="errors.invalid_credentials">{{errors.invalid_credentials}}</span><br>
+                        </div>
+                        
                         <div class="form-group row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
                             <input type="email" name="email" class="form-control" id="email" placeholder="Email" v-model="form.email">
+                               <div class="col-12 d-flex justify-content-end">
+                                    <span class="w-full text-red-500 error" v-if="errors.email">{{errors.email[0]}}</span><br>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="inputPassword3" v-model="form.password" placeholder="Password">
+                                <input type="password" name="password" class="form-control" id="inputPassword3" v-model="form.password" placeholder="Password">
+                                 <div class="col-12 d-flex justify-content-end">
+                                    <span class="w-full text-red-500 error" v-if="errors.password">{{errors.password[0]}}</span><br>
+                                </div>
                             </div>
                         </div>                      
                         <div class="form-group row">
@@ -68,3 +79,9 @@
         }
     }
 </script>
+
+<style>
+.error{
+    color:#FE4F70;
+}
+</style>

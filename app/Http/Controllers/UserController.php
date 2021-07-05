@@ -53,7 +53,7 @@ class UserController extends Controller
         if (! $user || ! Hash::check($request->password, $user->password)) {
             
             return response([
-                'message' => 'bad credits',
+                'errors' => ['invalid_credentials'=>'Invalid credentials, please try again'],
             ], 401);
         }
     
