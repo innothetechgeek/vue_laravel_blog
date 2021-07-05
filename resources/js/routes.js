@@ -4,9 +4,9 @@ import Register from "./pages/frontend/Register";
 import Login from "./pages/frontend/Login";
 
 
-import UserDashboard from "./pages/backend/posts/Dashboard";
-import AddPost from "./pages/backend/posts/Add";
-import EditPost from "./pages/backend/posts/Edit";
+import UserDashboard from "./pages/dashboard/posts/Dashboard";
+import AddPost from "./pages/dashboard/posts/Add";
+import EditPost from "./pages/dashboard/posts/Edit";
 
 export const routes = [
     {

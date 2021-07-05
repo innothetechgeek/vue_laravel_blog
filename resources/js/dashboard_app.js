@@ -39,7 +39,7 @@ const store = new Vuex.Store({
     }
   })
 
-Vue.component('dashbooard-index', require('./pages/backend/posts/Dashboard.vue').default);
+Vue.component('dashbooard-index', require('./pages/dashboard/posts/Dashboard.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

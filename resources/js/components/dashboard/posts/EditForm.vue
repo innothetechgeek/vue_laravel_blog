@@ -57,7 +57,6 @@
 <script>  
 
     var user_token = localStorage.getItem("user_token");
-    alert(user_token);
     const headers = {
             headers: { Authorization: 'Bearer '+user_token }
     };
