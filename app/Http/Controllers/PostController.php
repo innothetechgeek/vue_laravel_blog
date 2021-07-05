@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::select('posts.id as post_id', '*')
+        $posts = Post::orderBy('id', 'desc')->select('posts.id as post_id', '*')
                     ->join('users', 'posts.user_id', '=', 'users.id')->get();
 
         $posts = $posts->map(function($posts) {
@@ -30,7 +30,7 @@ class PostController extends Controller
 
     public function recentPosts(){
         
-        $posts = Post::select('posts.id as post_id', '*')
+        $posts = Post::orderBy('id', 'desc')->select('posts.id as post_id', '*')
                     ->join('users', 'posts.user_id', '=', 'users.id')->take(5)->get();
 
         $posts = $posts->map(function($posts) {
